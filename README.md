@@ -37,4 +37,52 @@ description: A single-sentence description of this project (optional)
 1. Steps
    - Inside helm folder create a Chart.yaml file (first letter should be upper case).
    - Add apiVersion, name of the chart, version of the chart, there parameters are mandatory
-   - 
+   - Create a templates folder inside helm, to create manifest files inside.
+   - Create values.yaml in the same template folder to add values for parameters that changes inside manifest.
+2. Template structure
+```
+- helm:
+  - templates
+- Chart.yaml
+```
+
+3. Command
+```
+helm install <chart-name> .
+helm install nginx .
+helm list #listing all the charts/applications
+
+#change image version to "trixie-perl" in values.yaml
+#change image version to "trixie" in values.yaml
+helm upgrade nginx .
+```
+
+4. Inspect what updates happened to helm chart
+```
+helm list #it will show revisions
+helm get values <chart-name> -o yaml
+```
+
+5. Dynamically providing chart values at command line
+```
+apiVersion: v2
+name: nginx #name of the chart
+version: 1.0.1 #chart version
+description: nginx helm chart
+appVersion: stable-perl #this is application version
+
+helm upgrade nginx . --description "upgrading to stable-perl"
+helm history nginx
+```
+
+6. Rollback
+```
+helm rollback nginx <revision number>
+helm rollback nginx 4
+helm history nginx
+```
+7. What resources helm installed
+```
+helm get manifest <chart-name>
+helm get manifest nginx>
+```
