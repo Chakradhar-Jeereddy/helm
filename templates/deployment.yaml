@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: helm-deploy
+# These are deployment labels
+ labels:
+    app: nginx
+spec:
+  replicas: {{.Values.deployment.replicas}} #this will find Values.yaml file
+  selector:
+# These labels are used to select the pods and replicaset
+    matchLabels:
+      purpose: helm-deploy
+      project: roboshop
+# This is pod template
+  template:
+    metadata:
+      labels:
+       purpose: helm-deploy
+       project: roboshop
+    spec:
+      containers:
+      - image: nginx
+        name: nginx:{{.values.deployment.imageVersion}}
