@@ -1,7 +1,6 @@
 deployment:  #This is placeholder
  replicas: 1
  imageVersion: latest
-
 service:
  type: NodePort
  servicePort: 80
