@@ -6,7 +6,7 @@ metadata:
  labels:
     app: nginx
 spec:
-  replicas: {{.Values.deployment.replicas}} #this will find Values.yaml file
+  replicas: {{ .Values.deployment.replicas }} #this will find Values.yaml file
   selector:
 # These labels are used to select the pods and replicaset
     matchLabels:
@@ -21,4 +21,4 @@ spec:
     spec:
       containers:
       - image: nginx
-        name: nginx:{{.values.deployment.imageVersion}}
+        name: nginx:{{ .values.deployment.imageVersion }}
