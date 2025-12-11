@@ -1,6 +1,6 @@
-deployment:  #This is placeholder
- replicas: 1
- imageVersion: latest
+deployment:
+  replicas: 5
+  imageVersion: latest
 service:
- type: NodePort
- servicePort: 80
+  type: NodePort
+  servicePort: 80
