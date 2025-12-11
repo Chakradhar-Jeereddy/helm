@@ -20,5 +20,5 @@ spec:
        project: roboshop
     spec:
       containers:
-      - image: nginx
-        name: nginx:{{ .Values.deployment.imageVersion }}
+      - image: nginx:{{ .Values.deployment.imageVersion }}
+        name: nginx
