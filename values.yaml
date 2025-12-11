@@ -1,6 +1,6 @@
 deployment:
   replicas: 5
-  imageVersion: latest
+  imageVersion: trixie-perl
 service:
   type: NodePort
   servicePort: 80
