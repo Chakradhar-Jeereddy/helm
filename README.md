@@ -45,6 +45,7 @@ description: A single-sentence description of this project (optional)
 - values-dev.yaml
 - values-prd.yaml
 helm upgrade catalogue . -f values-dev.yaml --set service.targetPort="80"
+helm upgrade nginx . -f values.yaml --set service.servicePort=8080
 ```
 2. Template structure
 ```
