@@ -38,7 +38,14 @@ description: A single-sentence description of this project (optional)
    - Inside helm folder create a Chart.yaml file (first letter should be upper case).
    - Add apiVersion, name of the chart, version of the chart, there parameters are mandatory
    - Create a templates folder inside helm, to create manifest files inside.
-   - Create values.yaml inside helm folder to add values for parameters that changes inside manifest.
+   - Create values.yaml inside helm folder to add values for parameters that changes 
+   inside manifest.
+   - We can create many values file with different names for each environment.
+```
+- values-dev.yaml
+- values-prd.yaml
+helm upgrade catalogue . -f values-dev.yaml --set service.targetPort="80"
+```
 2. Template structure
 ```
 - helm:
