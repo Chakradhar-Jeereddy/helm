@@ -95,3 +95,19 @@ helm history nginx
 helm get manifest <chart-name>
 helm get manifest nginx>
 ```
+
+8. Conditions
+```
+{{- if not .Values.nodeComponentOnly }} #If nodeComponentOnly is NOT true, then render the block
+---
+apiVersion: apps/v1
+kind: Deployment
+---
+{{- end }}
+
+
+If nodeComponentOnly = true → not true = false
+If nodeComponentOnly = false → not false = true
+If nodeComponentOnly is missing → not nil = true
+(because nil is considered false)
+```
