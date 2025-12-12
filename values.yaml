@@ -15,4 +15,4 @@ port:
 service2:
  port: 27017
 
-nodeComponentOnly: true
+nodeComponentOnly: false
